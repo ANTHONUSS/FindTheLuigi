@@ -2,7 +2,6 @@ package fr.anthonus.sprites;
 
 import fr.anthonus.window.GameCanvas;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.random.RandomGenerator;

@@ -4,6 +4,7 @@ import fr.anthonus.Main;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.net.URL;
 
 public class Luigi extends Sprite {
 
