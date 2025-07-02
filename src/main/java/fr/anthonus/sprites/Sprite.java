@@ -1,9 +1,12 @@
 package fr.anthonus.sprites;
 
+import fr.anthonus.Main;
 import fr.anthonus.window.GameCanvas;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.random.RandomGenerator;
 
 public abstract class Sprite {
@@ -11,7 +14,7 @@ public abstract class Sprite {
     protected float y;
     protected float dx;
     protected float dy;
-    protected static final int speed = 2;
+    protected static final int speed = 3;
     protected final BufferedImage image;
 
     public Sprite(BufferedImage image) {
@@ -55,5 +58,14 @@ public abstract class Sprite {
         g.drawImage(originalImage, 0, 0, width, height, null);
         g.dispose();
         return resizedImage;
+    }
+
+    public static BufferedImage loadImage(String path, Class<?> contextClass) throws IOException {
+        var inputStream = contextClass.getResourceAsStream(path);
+        if (inputStream == null) {
+            throw new RuntimeException("Image not found: " + path);
+        }
+        return ImageIO.read(inputStream);
+
     }
 }

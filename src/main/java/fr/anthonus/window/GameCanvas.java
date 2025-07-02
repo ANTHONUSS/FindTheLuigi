@@ -22,12 +22,12 @@ public class GameCanvas extends JPanel {
     private static boolean luigiFound = false;
 
     private static Clip clip;
-    private static final URL gameBG = Main.class.getResource("/sounds/game-bg.wav");
+    private static final URL gameBG = GameCanvas.class.getResource("/sounds/game-bg.wav");
     private static final URL luigiSounds[] = {
-            Main.class.getResource("/sounds/luigi-1.wav"),
-            Main.class.getResource("/sounds/luigi-2.wav"),
-            Main.class.getResource("/sounds/luigi-3.wav"),
-            Main.class.getResource("/sounds/luigi-4.wav")
+            GameCanvas.class.getResource("/sounds/luigi-1.wav"),
+            GameCanvas.class.getResource("/sounds/luigi-2.wav"),
+            GameCanvas.class.getResource("/sounds/luigi-3.wav"),
+            GameCanvas.class.getResource("/sounds/luigi-4.wav")
     };
 
     public GameCanvas() {
@@ -65,10 +65,7 @@ public class GameCanvas extends JPanel {
             }
         });
 
-        int fps = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getRefreshRate(); // get les fps de l'écran
-        if (fps <= 0) fps = 10; // Si le taux de rafraîchissement n'est pas défini, on utilise une valeur par défaut
-
-        new Timer(1000 / fps, e -> {
+        new Timer(16 /* 60 fps */, e -> {
             for (Sprite sprite : sprites) {
                 if (!luigiFound) sprite.moveSprite();
             }
