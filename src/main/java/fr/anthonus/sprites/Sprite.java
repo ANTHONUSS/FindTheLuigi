@@ -30,7 +30,7 @@ public abstract class Sprite {
         this.dx = dx / norm;
         this.dy = dy / norm;
 
-        this.speed = random.nextInt(1, 4);
+        this.speed = random.nextInt(2, 4);
     }
 
     public void draw(Graphics2D g) {
@@ -48,8 +48,6 @@ public abstract class Sprite {
         if (x < 0 || x + image.getWidth() > GameCanvas.windowWidth) dx = -dx;
         if (y < 0 || y + image.getHeight() > GameCanvas.windowHeight) dy = -dy;
     }
-
-
 
     public static BufferedImage resizeImage(BufferedImage originalImage, int scale) {
         int width = originalImage.getWidth() * scale;
