@@ -1,6 +1,5 @@
 package fr.anthonus.window;
 
-import fr.anthonus.Main;
 import fr.anthonus.sprites.*;
 
 import javax.sound.sampled.*;
@@ -71,6 +70,7 @@ public class GameCanvas extends JPanel {
             }
 
             repaint();
+            
         }).start();
 
         // Démarre la musique de fond

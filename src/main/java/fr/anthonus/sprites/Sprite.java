@@ -14,7 +14,7 @@ public abstract class Sprite {
     protected float y;
     protected float dx;
     protected float dy;
-    protected static final int speed = 3; //jsp pk mais quand on exécute le .jar en compilé, la vitesse est plus rapide de 1 (wtf????)
+    protected int speed;
     protected final BufferedImage image;
 
     public Sprite(BufferedImage image) {
@@ -29,6 +29,8 @@ public abstract class Sprite {
         float norm = (float) Math.sqrt(dx * dx + dy * dy);
         this.dx = dx / norm;
         this.dy = dy / norm;
+
+        this.speed = random.nextInt(1, 4);
     }
 
     public void draw(Graphics2D g) {
